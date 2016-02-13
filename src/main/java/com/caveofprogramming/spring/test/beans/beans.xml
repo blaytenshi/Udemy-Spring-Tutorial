@@ -4,28 +4,18 @@
 	xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<!-- onCreated() of the Person class is called when the Person is initialised -->
-	<bean id="person" class="com.caveofprogramming.spring.test.Person"
-		scope="singleton" init-method="onCreate" destroy-method="onDestroy"
-		factory-method="getInstance">
-		<constructor-arg value="777" name="id" type="int"></constructor-arg>
-		<constructor-arg value="Mary" name="name" type="String"></constructor-arg>
-		<property name="taxId" value="123"></property>
-		<!-- ref is the "class" of the bean to be injected -->
-		<property name="address" ref="address"></property>
-	</bean>
+	<bean id="basket"
+		class="com.caveofprogramming.spring.test.FruitBasket">
 
-	<bean id="address" class="com.caveofprogramming.spring.test.Address">
-		<constructor-arg value="1 Church Lane"></constructor-arg>
-		<constructor-arg value="9876"></constructor-arg>
-	</bean>
-	
-	<bean id="address2" class="com.caveofprogramming.spring.test.Address" p:street="23 Vinyard Lane" p:postcode="6789">
-		
-	</bean>
-	
-	
-	<bean id="personfactory"
-		class="com.caveofprogramming.spring.test.PersonFactory">
+	<constructor-arg value="John's Basket"></constructor-arg>
+	<constructor-arg>
+		<!-- Can use the set tag and let Spring weed out duplicates for you like with a normal set object -->
+		<list>
+			<value>Apple</value>
+			<value>Banana</value>
+			<value>Kiwi</value>
+			<value>Pear</value>
+		</list>
+	</constructor-arg>
 	</bean>
 </beans>

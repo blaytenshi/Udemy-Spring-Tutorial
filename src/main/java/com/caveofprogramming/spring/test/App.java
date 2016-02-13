@@ -11,11 +11,11 @@ public class App {
 		ApplicationContext context = new ClassPathXmlApplicationContext("com/caveofprogramming/spring/test/beans/beans.xml");
 		
 		// passing bean id into the getBean method and cast the return type of the object
-		Person person1 = (Person)context.getBean("person");
-		Person person2 = (Person)context.getBean("person");
-		person1.setTaxId(666);
+		Person person = (Person)context.getBean("person");
+		
+		person.setTaxId(666);
 
-		System.out.println(person2);
+		System.out.println(person);
 		
 		((ClassPathXmlApplicationContext) context).close();
 	}

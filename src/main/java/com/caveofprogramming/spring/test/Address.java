@@ -8,6 +8,10 @@ public class Address {
 		
 	}
 	
+	public void init() {
+		System.out.println("Bean Created." + this);
+	}
+	
 	public Address(String street, String postcode) {
 		this.street = street;
 		this.postcode = postcode;

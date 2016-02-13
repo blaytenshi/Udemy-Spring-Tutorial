@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
-	default-init-method="init" default-destroy-method="destroy">
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<!-- onCreated() of the Person class is called when the Person is initialised -->
 	<bean id="person" class="com.caveofprogramming.spring.test.Person"
@@ -14,19 +14,18 @@
 		<!-- ref is the "class" of the bean to be injected -->
 		<property name="address" ref="address"></property>
 	</bean>
-	
-	<bean id="person2" class="com.caveofprogramming.spring.test.Person"
-		scope="singleton" init-method="onCreate" destroy-method="onDestroy"
-		factory-method="createPerson" factory-bean="personf">
-		<constructor-arg value="777" name="id" type="int"></constructor-arg>
-		<constructor-arg value="Mike" name="name" type="String"></constructor-arg>
-		<property name="taxId" value="123"></property>
-		<!-- ref is the "class" of the bean to be injected -->
-		<property name="address" ref="address"></property>
-	</bean>
 
 	<bean id="address" class="com.caveofprogramming.spring.test.Address">
 		<constructor-arg value="1 Church Lane"></constructor-arg>
 		<constructor-arg value="9876"></constructor-arg>
+	</bean>
+	
+	<bean id="address2" class="com.caveofprogramming.spring.test.Address" p:street="23 Vinyard Lane" p:postcode="6789">
+		
+	</bean>
+	
+	
+	<bean id="personfactory"
+		class="com.caveofprogramming.spring.test.PersonFactory">
 	</bean>
 </beans>

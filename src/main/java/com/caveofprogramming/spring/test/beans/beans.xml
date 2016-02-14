@@ -1,21 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="basket"
-		class="com.caveofprogramming.spring.test.FruitBasket">
-
-	<constructor-arg value="John's Basket"></constructor-arg>
-	<constructor-arg>
-		<!-- Can use the set tag and let Spring weed out duplicates for you like with a normal set object -->
-		<list>
-			<value>Apple</value>
-			<value>Banana</value>
-			<value>Kiwi</value>
-			<value>Pear</value>
-		</list>
-	</constructor-arg>
+	<bean id="jungle"
+		class="com.caveofprogramming.spring.test.Jungle">
+		<property name="largest" ref="elephant"></property>
+		<property name="animals">
+			<list>
+				<ref bean="lion" />
+				<ref bean="snake" />
+				<ref bean="elephant" />
+			</list>
+		</property>
 	</bean>
+
+	<bean id="lion" class="com.caveofprogramming.spring.test.Animal">
+		<property name="name" value="Igor"></property>
+		<property name="type" value="lion"></property>
+	</bean>
+
+	<bean id="elephant" class="com.caveofprogramming.spring.test.Animal">
+		<property name="name" value="Richard"></property>
+		<property name="type" value="elephant"></property>
+	</bean>
+
+	<bean id="snake" class="com.caveofprogramming.spring.test.Animal">
+		<property name="name" value="Bob"></property>
+		<property name="type" value="snake"></property>
+	</bean>
+
 </beans>

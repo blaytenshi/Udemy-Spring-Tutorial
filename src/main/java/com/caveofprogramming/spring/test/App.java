@@ -8,9 +8,9 @@ public class App {
 		
 		ApplicationContext context = new ClassPathXmlApplicationContext("com/caveofprogramming/spring/test/beans/beans.xml");
 		
-		FruitBasket basket = (FruitBasket)context.getBean("basket");
+		Jungle jungle = (Jungle)context.getBean("jungle");
 		
-		System.out.println(basket);
+		System.out.println(jungle);
 		
 		((ClassPathXmlApplicationContext)context).close();
 	}

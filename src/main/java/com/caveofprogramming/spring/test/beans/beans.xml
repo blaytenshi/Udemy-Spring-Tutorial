@@ -3,39 +3,30 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="jungle" class="com.caveofprogramming.spring.test.Jungle">
-		<property name="largest">
-			<!--
-				If you define something as an inner bean you cannot reference it anywhere else:
-				<property name="largest" ref="elephant">
-				^ The inner bean can only be used here unless you redefine it (see further below).
-			-->
-			<bean class="com.caveofprogramming.spring.test.Animal">
-				<property name="name" value="Richard"></property>
-				<property name="type" value="elephant"></property>
-			</bean>
-		</property>
-		<property name="animals">
-			<list>
-				<bean class="com.caveofprogramming.spring.test.Animal">
-					<property name="name" value="Igor"></property>
-					<property name="type" value="lion"></property>
-				</bean>
-				<!-- 
-					elephant bean redefined here
-				 -->
-				<bean class="com.caveofprogramming.spring.test.Animal">
-					<property name="name" value="Richard"></property>
-					<property name="type" value="elephant"></property>
-				</bean>
-				<bean class="com.caveofprogramming.spring.test.Animal">
-					<property name="name" value="Bob"></property>
-					<property name="type" value="snake"></property>
-				</bean>
-			</list>
-		</property>
+	<bean class="com.caveofprogramming.spring.test.Animal">
+		<property name="name" value="Igor"></property>
+		<property name="type" value="lion"></property>
+	</bean>
+	<bean class="com.caveofprogramming.spring.test.Animal">
+		<property name="name" value="Richard"></property>
+		<property name="type" value="elephant"></property>
+	</bean>
+	<bean class="com.caveofprogramming.spring.test.Animal">
+		<property name="name" value="Bob"></property>
+		<property name="type" value="snake"></property>
 	</bean>
 
-
+	<bean id="jungle" class="com.caveofprogramming.spring.test.Jungle">
+		<!-- 
+			populates the foods property with the necessary key value pairs by calling the setFoods() method
+		 -->
+		<property name="foods">
+			<props>
+				<prop key="gorilla">banana</prop>
+				<prop key="panda">bamboo</prop>
+				<prop key="snake">eggs</prop>
+			</props>
+		</property>
+	</bean>
 
 </beans>

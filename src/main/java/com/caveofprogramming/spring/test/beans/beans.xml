@@ -10,7 +10,16 @@
 
 	</bean>
 
-	<bean id="fileWriter" class="com.caveofprogramming.spring.test.FileWriter">
+	<bean id="consoleWriter" class="com.caveofprogramming.spring.test.ConsoleWriter">
+		<qualifier value="toconsole"></qualifier>
+	</bean>
+	
+	<bean id="squirrel" class="com.caveofprogramming.spring.test.ConsoleWriter">
+
+	</bean>
+	
+
+	<bean id="mongoose" class="com.caveofprogramming.spring.test.FileWriter">
 
 	</bean>
 

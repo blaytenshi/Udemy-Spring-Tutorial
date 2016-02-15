@@ -6,13 +6,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 
-	<bean id="logger" class="com.caveofprogramming.spring.test.Logger">
-
-	</bean>
-
-	<bean id="fileWriter" class="com.caveofprogramming.spring.test.FileWriter">
-
-	</bean>
+	<bean id="robot" class="com.caveofprogramming.spring.test.Robot"></bean>
 
 	<context:annotation-config></context:annotation-config>
 </beans>

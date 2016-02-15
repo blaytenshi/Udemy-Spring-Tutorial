@@ -6,7 +6,12 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 
-	<bean id="robot" class="com.caveofprogramming.spring.test.Robot"></bean>
-
+	<bean id="robot" class="com.caveofprogramming.spring.test.Robot">
+		<!-- The ?. operator will only retrieve the property if it's not null -->
+		<property name="id" value="#{randomText.text?.length()}"></property>
+		<property name="speech" value="#{'random text: ' + randomText.getText()}"></property>
+	</bean>
+	
+	<bean id="randomText" class="com.caveofprogramming.spring.test.RandomText"></bean>
 	<context:annotation-config></context:annotation-config>
 </beans>

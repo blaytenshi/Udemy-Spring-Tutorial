@@ -3,38 +3,16 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="lion" class="com.caveofprogramming.spring.test.Animal">
-		<property name="name" value="Igor"></property>
-		<property name="type" value="lion"></property>
+	<bean id="logger" class="com.caveofprogramming.spring.test.Logger" autowire="byType">
+	
 	</bean>
-	<bean id="elephant" class="com.caveofprogramming.spring.test.Animal">
-		<property name="name" value="Richard"></property>
-		<property name="type" value="elephant"></property>
+	
+	<!-- If you only passed in the interface type there would be ambiguity and Spring will not autowire, eg: if autowiring LogWriter instead of ConsoleWriter bean. -->
+	<bean id="consoleWriter" class="com.caveofprogramming.spring.test.ConsoleWriter">
+	
 	</bean>
-	<bean id="snake" class="com.caveofprogramming.spring.test.Animal">
-		<property name="name" value="Bob"></property>
-		<property name="type" value="snake"></property>
+	
+	<bean id="fileWriter" class="com.caveofprogramming.spring.test.FileWriter">
+	
 	</bean>
-
-	<bean id="jungle" class="com.caveofprogramming.spring.test.Jungle">
-		<!-- 
-			populates the foods property with the necessary key value pairs by calling the setFoods() method
-		 -->
-		<property name="foods">
-			<props>
-				<prop key="gorilla">banana</prop>
-				<prop key="panda">bamboo</prop>
-				<prop key="snake">eggs</prop>
-			</props>
-		</property>
-		
-		<property name="animals">
-			<map>
-				<entry key="lion" value-ref="lion"></entry>
-				<entry key="elephant" value-ref="elephant"></entry>
-				<entry key="snake" value-ref="snake"></entry>
-			</map>
-		</property>
-	</bean>
-
 </beans>

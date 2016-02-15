@@ -8,9 +8,10 @@ public class App {
 		
 		ApplicationContext context = new ClassPathXmlApplicationContext("com/caveofprogramming/spring/test/beans/beans.xml");
 		
-		Jungle jungle = (Jungle)context.getBean("jungle");
+		Logger logger = (Logger)context.getBean("logger");
 		
-		System.out.println(jungle);
+		logger.writeConsole("Hello there");
+		logger.writeFile("Hi again");
 		
 		((ClassPathXmlApplicationContext)context).close();
 	}

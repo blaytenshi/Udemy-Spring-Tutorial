@@ -1,18 +1,21 @@
 package com.caveofprogramming.spring.test;
 
 import javax.annotation.*;
+import javax.inject.*;
 
 public class Logger {
 
 	private ConsoleWriter consoleWriter;
 	private LogWriter fileWriter;
 
-	@Resource
+	@Inject
+	@Named(value="consoleWriter")
 	public void setConsoleWriter(ConsoleWriter writer) {
 		this.consoleWriter = writer;
 	}
 	
-	@Resource(name="squirrel")
+	@Inject
+	@Named(value="squirrel")
 	public void setFileWriter(LogWriter fileWriter) {
 		this.fileWriter = fileWriter;
 	}

@@ -1,19 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	default-autowire="byType"
+	default-autowire-candidates="*Writer">
+	<!-- ^ You can specify specific names/ids as candidates -->
+	<!-- You can also single out names/ids to NOT autowire like this (Only stuff ending with Writer) -->
 
-	<!-- Will try to autowire by the types specified by the constructor -->
-	<!-- If there's more than one constructor Spring will try to find the correct one. If there's no matching ones then nothing will be wired. -->
-	<bean id="logger" class="com.caveofprogramming.spring.test.Logger" autowire="constructor">
+	<bean id="logger" class="com.caveofprogramming.spring.test.Logger">
+
+	</bean>
+
+	<bean id="consoleWriter" class="com.caveofprogramming.spring.test.ConsoleWriter">
+
+	</bean>
+
+	<bean id="fileWriter" class="com.caveofprogramming.spring.test.FileWriter">
+
+	</bean>
+	
+	<bean id="squirrel" class="com.caveofprogramming.spring.test.FileWriter">
 	
 	</bean>
 
-	<bean name="consoleWriter" class="com.caveofprogramming.spring.test.ConsoleWriter">
-	
-	</bean>
-	
-	<bean name="fileWriter" class="com.caveofprogramming.spring.test.FileWriter">
-	
-	</bean>
 </beans>

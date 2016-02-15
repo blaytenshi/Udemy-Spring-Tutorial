@@ -3,8 +3,9 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<!-- if Autowiring byName then it will use the id OR name of the bean as the name -->
-	<bean id="logger" class="com.caveofprogramming.spring.test.Logger" autowire="byName">
+	<!-- Will try to autowire by the types specified by the constructor -->
+	<!-- If there's more than one constructor Spring will try to find the correct one. If there's no matching ones then nothing will be wired. -->
+	<bean id="logger" class="com.caveofprogramming.spring.test.Logger" autowire="constructor">
 	
 	</bean>
 

@@ -3,16 +3,16 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="logger" class="com.caveofprogramming.spring.test.Logger" autowire="byType">
+	<!-- if Autowiring byName then it will use the id OR name of the bean as the name -->
+	<bean id="logger" class="com.caveofprogramming.spring.test.Logger" autowire="byName">
+	
+	</bean>
+
+	<bean name="consoleWriter" class="com.caveofprogramming.spring.test.ConsoleWriter">
 	
 	</bean>
 	
-	<!-- If you only passed in the interface type there would be ambiguity and Spring will not autowire, eg: if autowiring LogWriter instead of ConsoleWriter bean. -->
-	<bean id="consoleWriter" class="com.caveofprogramming.spring.test.ConsoleWriter">
-	
-	</bean>
-	
-	<bean id="fileWriter" class="com.caveofprogramming.spring.test.FileWriter">
+	<bean name="fileWriter" class="com.caveofprogramming.spring.test.FileWriter">
 	
 	</bean>
 </beans>

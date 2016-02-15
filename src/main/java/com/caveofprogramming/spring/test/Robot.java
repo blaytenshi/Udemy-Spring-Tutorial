@@ -14,15 +14,18 @@ public class Robot {
 	}
 	
 	@Autowired
-	/*
-	 * You can use SPEL with the value annotation as well :)
-	 */
 	public void setId(@Value("#{randomText.getText()?.length()}") String id) {
 		this.id = id;
 	}
 	
 	@Autowired
-	public void setSpeech(@Value("#{randomText.getText()}") String speech) {
+	// new java.util.Date().toString() // You can instantiate new java objects with SPEL
+	// T(Math).PI // If you need to refer to something that's static, you need to surround it with T()
+	// T(Math).sin(T(Math).PI/4) ^ 2 eq 0.8
+	// T(Math).sin(T(Math).PI/4) ^ 2 lt 0.8
+	// T(Math).sin(T(Math).PI/4) ^ 2 le 0.8
+	// T(Math).sin(T(Math).PI/4) ^ 2 le 0.8 ? 'yes' : 'no'
+	public void setSpeech(@Value("#{T(Math).sin(T(Math).PI/4) ^ 2 le 0.8 ? 'yes' : 'no'}") String speech) {
 		this.speech = speech;
 	}
 }

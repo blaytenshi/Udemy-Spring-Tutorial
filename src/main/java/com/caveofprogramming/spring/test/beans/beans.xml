@@ -2,25 +2,29 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
-	default-autowire="byType"
-	default-autowire-candidates="*Writer">
-	<!-- ^ You can specify specific names/ids as candidates -->
-	<!-- You can also single out names/ids to NOT autowire like this (Only stuff ending with Writer) -->
+	default-autowire="byType">
 
 	<bean id="logger" class="com.caveofprogramming.spring.test.Logger">
 
 	</bean>
 
-	<bean id="consoleWriter" class="com.caveofprogramming.spring.test.ConsoleWriter">
+	<!-- By specifying a bean as primary you are telling Spring that if it encounters a duplicate during autowiring, to use this one -->
+	<bean id="consoleWriter" class="com.caveofprogramming.spring.test.ConsoleWriter" primary="true">
+
+	</bean>
+
+	<bean id="panda" class="com.caveofprogramming.spring.test.ConsoleWriter">
 
 	</bean>
 
 	<bean id="fileWriter" class="com.caveofprogramming.spring.test.FileWriter">
 
 	</bean>
-	
-	<bean id="squirrel" class="com.caveofprogramming.spring.test.FileWriter">
-	
+
+	<!-- By setting the autowire-candidate to false, you can remove the a specific bean from being an autowire-candidate altogether -->
+	<bean id="squirrel" class="com.caveofprogramming.spring.test.FileWriter"
+		autowire-candidate="false">
+
 	</bean>
 
 </beans>

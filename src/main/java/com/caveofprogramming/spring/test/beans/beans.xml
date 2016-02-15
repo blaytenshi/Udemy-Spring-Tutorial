@@ -6,23 +6,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 
-	<bean id="logger" class="com.caveofprogramming.spring.test.Logger"
-		scope="singleton">
-
-	</bean>
-
-	<bean id="consoleWriter" class="com.caveofprogramming.spring.test.ConsoleWriter">
-		<qualifier value="toconsole"></qualifier>
-	</bean>
-	
-	<bean id="squirrel" class="com.caveofprogramming.spring.test.ConsoleWriter">
-
-	</bean>
-	
-
-	<bean id="mongoose" class="com.caveofprogramming.spring.test.FileWriter">
-
-	</bean>
+	<context:component-scan base-package="com.caveofprogramming.spring.test"></context:component-scan>
 
 	<context:annotation-config></context:annotation-config>
 </beans>

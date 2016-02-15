@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Robot {
-	private int id = 0;
+	private String id = "Default robot";
 	private String speech = "hello";
 	
 	public void speak() {
@@ -14,12 +14,15 @@ public class Robot {
 	}
 	
 	@Autowired
-	public void setId(@Value("1138") int id) {
+	/*
+	 * You can use SPEL with the value annotation as well :)
+	 */
+	public void setId(@Value("#{randomText.getText()?.length()}") String id) {
 		this.id = id;
 	}
 	
 	@Autowired
-	public void setSpeech(@Value("I'll be back.") String speech) {
+	public void setSpeech(@Value("#{randomText.getText()}") String speech) {
 		this.speech = speech;
 	}
 }

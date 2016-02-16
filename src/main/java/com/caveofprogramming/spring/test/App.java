@@ -17,6 +17,8 @@ public class App {
 
 		try {
 
+			offersDao.delete(80);
+			
 			List<Offer> offers = offersDao.getOffers();
 
 			for (Offer offer : offers) {
@@ -25,6 +27,8 @@ public class App {
 			
 			Offer offer = offersDao.getOffer(2);
 			System.out.println("Should be Mike: " + offer);
+			
+			
 			
 		} catch (CannotGetJdbcConnectionException ex) {
 			System.out.println("Cannot get database connection");

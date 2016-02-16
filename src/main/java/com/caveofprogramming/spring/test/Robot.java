@@ -14,18 +14,12 @@ public class Robot {
 	}
 	
 	@Autowired
-	public void setId(@Value("#{randomText.getText()?.length()}") String id) {
+	public void setId(@Value("${jdbc.user}")String id) {
 		this.id = id;
 	}
 	
 	@Autowired
-	// new java.util.Date().toString() // You can instantiate new java objects with SPEL
-	// T(Math).PI // If you need to refer to something that's static, you need to surround it with T()
-	// T(Math).sin(T(Math).PI/4) ^ 2 eq 0.8
-	// T(Math).sin(T(Math).PI/4) ^ 2 lt 0.8
-	// T(Math).sin(T(Math).PI/4) ^ 2 le 0.8
-	// T(Math).sin(T(Math).PI/4) ^ 2 le 0.8 ? 'yes' : 'no'
-	public void setSpeech(@Value("#{T(Math).sin(T(Math).PI/4) ^ 2 le 0.8 ? 'yes' : 'no'}") String speech) {
+	public void setSpeech(@Value("${jdbc.password}")String speech) {
 		this.speech = speech;
 	}
 }

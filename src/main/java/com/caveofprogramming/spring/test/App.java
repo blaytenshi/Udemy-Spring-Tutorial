@@ -14,6 +14,13 @@ public class App {
 				"com/caveofprogramming/spring/test/beans/beans.xml");
 
 		OffersDAO offersDao = (OffersDAO) context.getBean("offersDao");
+		
+		Offer updateOffer = new Offer(90, "Claire", "claire@caveofprogramming.com", "Web design to fit any budget!");
+		if (offersDao.update(updateOffer)) {
+			System.out.println("Object updated.");
+		} else {
+			System.out.println("Cannot update object");
+		}
 
 		try {
 			

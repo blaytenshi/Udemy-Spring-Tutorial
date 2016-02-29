@@ -8,7 +8,11 @@
 </head>
 <body>
 <p>
-Session: <%= session.getAttribute("name") %>
+Session: <%= session.getAttribute("name") %> <!-- Cannot get it from session because ModelAndView object uses request session scope -->
+
+Request: <%= request.getAttribute("name") %>
+
+Request (Using EL): ${name}
 </p>
 </body>
 </html>

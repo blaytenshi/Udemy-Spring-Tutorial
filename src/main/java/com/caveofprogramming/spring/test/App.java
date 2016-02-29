@@ -15,50 +15,19 @@ public class App {
 				"com/caveofprogramming/spring/test/beans/beans.xml");
 
 		OffersDAO offersDao = (OffersDAO) context.getBean("offersDao");
-		
-		Offer updateOffer = new Offer(90, "Claire", "claire@caveofprogramming.com", "Web design to fit any budget!");
-		if (offersDao.update(updateOffer)) {
-			System.out.println("Object updated.");
-		} else {
-			System.out.println("Cannot update object");
-		}
 
 		try {
 			
-			Offer offer1 = new Offer("Dave", "dave@caveofprogramming.com", "Coding Java");
-			Offer offer2 = new Offer("Karent", "karen@caveofprogramming.com", "Software Testing to order");
-			
-			if (offersDao.create(offer1)) {
-				System.out.println("Created offer object");
-			}
-			
-			if (offersDao.create(offer2)) {
-				System.out.println("Created offer object");
-			}
-			
 			List<Offer> offersList = new ArrayList<Offer>();
 			
-			offersList.add(new Offer("Dave", "dave@caveofprogramming.com", "Cash for software."));
-			offersList.add(new Offer("Karen", "karen@caveofprogramming.com", "Elegant web design."));
+			offersList.add(new Offer(3, "Steve", "steve@caveofprogramming.com", "Cash for software."));
+			offersList.add(new Offer(2, "Joe", "dave@caveofprogramming.com", "Elegant web design."));
 			
 			int[] rvals = offersDao.create(offersList);
 			
 			for(int value: rvals) {
 				System.out.println("Updated " + value + " rows.");
 			}
-			
-			offersDao.delete(80);
-			
-			List<Offer> offers = offersDao.getOffers();
-
-			for (Offer offer : offers) {
-				System.out.println(offer);
-			}
-			
-			Offer offer = offersDao.getOffer(2);
-			System.out.println("Should be Mike: " + offer);
-			
-			
 			
 		} catch (CannotGetJdbcConnectionException ex) {
 			System.out.println("Cannot get database connection");

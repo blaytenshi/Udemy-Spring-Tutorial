@@ -50,3 +50,4 @@ Temporary Items
 *.springBeans
 /.settings/
 /target/
+/build/

@@ -11,6 +11,8 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
+import org.springframework.jdbc.core.namedparam.SqlParameterSourceUtils;
 import org.springframework.stereotype.Component;
 
 @Component("offersDao")
@@ -43,11 +45,18 @@ public class OffersDAO {
 	
 	public boolean create(Offer offer) {
 		
-		// Allows you to transform beans into objects to instert into databases
+		// Allows you to transform beans (in this case the offer object) into objects to instert into databases
 		BeanPropertySqlParameterSource params = new BeanPropertySqlParameterSource(offer);
 		
 		// The named parameters must match the names of properties in your object in order for them to be inserted
-		return jdbc.update("insert into offers (name, text, email) values (:name, :text, :email)", params) == 1;
+		return jdbc.update("insert into offers (name, text, email) values (:name, :email, :text)", params) == 1;
+	}
+	
+	public int[] create(List<Offer> offers) {
+		
+		SqlParameterSource[] params = SqlParameterSourceUtils.createBatch(offers.toArray());
+		
+		return jdbc.batchUpdate("insert into offers (name, text, email) values (:name, :email, :text)", params);
 	}
 	
 	public boolean update(Offer offer) {

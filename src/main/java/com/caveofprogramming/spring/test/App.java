@@ -1,5 +1,6 @@
 package com.caveofprogramming.spring.test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.context.ApplicationContext;
@@ -33,6 +34,17 @@ public class App {
 			
 			if (offersDao.create(offer2)) {
 				System.out.println("Created offer object");
+			}
+			
+			List<Offer> offersList = new ArrayList<Offer>();
+			
+			offersList.add(new Offer("Dave", "dave@caveofprogramming.com", "Cash for software."));
+			offersList.add(new Offer("Karen", "karen@caveofprogramming.com", "Elegant web design."));
+			
+			int[] rvals = offersDao.create(offersList);
+			
+			for(int value: rvals) {
+				System.out.println("Updated " + value + " rows.");
 			}
 			
 			offersDao.delete(80);

@@ -4,36 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<style type="text/css">
-	.formtable {
-		width: 400px;
-		padding: 10px;
-		border: 1px solid blue
-	}
-	
-	input[type=text] {
-		width: 250px;
-	}
-	
-	textarea {
-		width: 250px;
-		height: 300px;
-	}
-	
-	.label {
-		text-align: right;
-		vertical-align: top;
-	}
-	
-	.control {
-		margin-left: 10px;
-	}
-</style>
+<link href="${pageContext.request.contextPath}/static/css/main.css" rel="stylesheet" type="text/css" />
 <title>Insert title here</title>
 </head>
 <body>
-
-
 
 	<form method="post" action="${pageContext.request.contextPath}/doCreate">
 		<table class="formtable">
@@ -55,8 +29,6 @@
 			</tr>
 		</table>
 	</form>
-
-
 
 </body>
 </html>

@@ -47,9 +47,10 @@ public class OffersController {
 		return "createOffer";
 	}
 	
-	@RequestMapping("/doCreate")
-	public String doCreate() {
-		
+	@RequestMapping(value="/doCreate", method=RequestMethod.POST)
+	public String doCreate(Model model, Offer offer) {
+		// It'll automatically map the input into the object!! :O!!!
+		System.out.println(offer);
 		return "offerCreated";
 	}
 	

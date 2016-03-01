@@ -10,7 +10,7 @@
 
 
 
-	<form method="get" action="${pageContext.request.contextPath}/doCreate">
+	<form method="post" action="${pageContext.request.contextPath}/doCreate">
 		<table>
 			<tr>
 				<td>Name:</td>

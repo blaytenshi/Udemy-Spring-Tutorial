@@ -21,14 +21,20 @@ public class OffersController {
 	}
 	
 	
-	@RequestMapping("/")
-	public String showHome(Model model) {
+	@RequestMapping("/offers")
+	public String showOffers(Model model) {
 		
 		List<Offer> offers = offerService.getCurrent();
 		
 		model.addAttribute("offers", offers);
 		
-		return "home";
+		return "offers";
+	}
+	
+	@RequestMapping("/createOffer")
+	public String createOffer() {
+		
+		return "createOffer";
 	}
 	
 }

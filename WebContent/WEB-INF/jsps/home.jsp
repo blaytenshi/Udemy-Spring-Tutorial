@@ -10,14 +10,11 @@
 </head>
 <body>
 
-<sql:query var="rs" dataSource="jdbc/spring">
-select id, name, email from offers
-</sql:query>
-
-<p><c:out value="${name}"></c:out></p>
-<c:forEach var="row" items="${rs.rows}">
+<c:forEach var="row" items="${offers}">
 	ID: ${row.id}<br>
 	Name: ${row.name}<br>
+	Email: ${row.email}<br>
+	Text: ${row.text}<br>
 </c:forEach>
 </body>
 </html>

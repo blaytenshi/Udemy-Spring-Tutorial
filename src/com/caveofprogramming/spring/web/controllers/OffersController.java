@@ -47,4 +47,10 @@ public class OffersController {
 		return "createOffer";
 	}
 	
+	@RequestMapping("/doCreate")
+	public String doCreate() {
+		
+		return "offerCreated";
+	}
+	
 }

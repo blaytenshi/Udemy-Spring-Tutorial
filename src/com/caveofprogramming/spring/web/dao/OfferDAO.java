@@ -19,7 +19,11 @@ import org.springframework.stereotype.Component;
 public class OfferDAO {
 	private NamedParameterJdbcTemplate jdbc;
 	
-	@Autowired
+	public OfferDAO() {
+		System.out.println("Successfully loaded offers DAO");
+	}
+	
+	// @Autowired
 	public void setDataSource(DataSource jdbc) {
 		this.jdbc = new NamedParameterJdbcTemplate(jdbc);
 	}

@@ -25,4 +25,8 @@ public class OfferService {
 	public void create(Offer offer) {
 		offerDao.create(offer);
 	}
+
+	public void throwTestException() {
+		offerDao.getOffer(99999);
+	}
 }

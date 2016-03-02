@@ -64,6 +64,8 @@ public class OffersController {
 			return "createOffer";
 		} 
 		
+		offerService.create(offer);
+		
 		return "offerCreated";
 	}
 	

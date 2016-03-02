@@ -21,4 +21,8 @@ public class OfferService {
 	public List<Offer> getCurrent() {
 		return offerDao.getOffers();
 	}
+
+	public void create(Offer offer) {
+		offerDao.create(offer);
+	}
 }

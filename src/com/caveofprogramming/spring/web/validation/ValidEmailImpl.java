@@ -5,6 +5,7 @@ import javax.validation.ConstraintValidatorContext;
 
 import org.apache.commons.validator.routines.EmailValidator;
 
+/* Constraint Validator takes in <Annotation Name, Type that it's trying to validate> */
 public class ValidEmailImpl implements ConstraintValidator<ValidEmail, String> {
 
 	private int min;

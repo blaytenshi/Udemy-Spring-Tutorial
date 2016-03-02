@@ -46,7 +46,11 @@ public class OffersController {
 	}
 	
 	@RequestMapping("/createOffer")
-	public String createOffer() {
+	// When createOffer is called from browser, Model is generated and offer object is added to it. createOffer.jsp is then loaded.
+	// Therefore if i create an offer object and fill it with crap, it'll display on the jsp
+	public String createOffer(Model model) {
+		
+		model.addAttribute("offer", new Offer());
 		
 		return "createOffer";
 	}
@@ -62,9 +66,9 @@ public class OffersController {
 			for(ObjectError error : errors) {
 				System.out.println(error.getDefaultMessage());
 			}
-		} else {
-			System.out.println("Form validated");
-		}
+			
+			return "createOffer";
+		} 
 		
 		return "offerCreated";
 	}

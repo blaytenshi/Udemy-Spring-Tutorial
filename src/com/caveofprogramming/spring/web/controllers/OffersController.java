@@ -60,12 +60,6 @@ public class OffersController {
 		// It'll automatically map the input into the Offer object!! :O!!!
 		
 		if(result.hasErrors()) {
-			System.out.println("Form does not validate.");
-			List<ObjectError> errors = result.getAllErrors();
-			
-			for(ObjectError error : errors) {
-				System.out.println(error.getDefaultMessage());
-			}
 			
 			return "createOffer";
 		} 

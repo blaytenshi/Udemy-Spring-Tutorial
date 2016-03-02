@@ -10,19 +10,19 @@
 <body>
 
 	<sf:form method="post" action="${pageContext.request.contextPath}/doCreate" commandName="offer">
-	<!-- commandName finds the 'offer' object in the Model and reads from it.  -->
+	<!-- commandName finds the 'offer' object in the Model and reads from it. It needs to be a spring form to work. -->
 		<table class="formtable">
 			<tr>
 				<td class="label">Name:</td>
-				<td><sf:input class="control" name="name" type="text" path="name"/></td>
+				<td><sf:input class="control" name="name" type="text" path="name"/><br><sf:errors path="name" cssClass="error"></sf:errors></td>
 			</tr>
 			<tr>
 				<td class="label">Email:</td>
-				<td><sf:input class="control" name="email" type="text" path="email"/></td>
+				<td><sf:input class="control" name="email" type="text" path="email"/><br><sf:errors path="email" cssClass="error"></sf:errors></td>
 			</tr>
 			<tr>
 				<td class="label">Your Offer:</td>
-				<td><sf:textarea class="control" name="text" rows="10" cols="10" path="text"></sf:textarea></td>
+				<td><sf:textarea class="control" name="text" rows="10" cols="10" path="text"></sf:textarea><br><sf:errors path="text" cssClass="error"></sf:errors></td>
 			</tr>
 			<tr>
 				<td>&nbsp;</td>

@@ -5,5 +5,27 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.0.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+	<security:authentication-manager>
+		<security:authentication-provider>
+			<security:user-service>
+				<!-- authorities are roles like admin, user, etc -->
+				<security:user name="John" authorities="admin" password="letmein"/>
+				<security:user name="Zog" authorities="admin" password="iamzog"/>
+			</security:user-service>
+		</security:authentication-provider>
+	</security:authentication-manager>
+	
+	<!-- Which parts of the website are under security control. Use-expressions to true because we're gonna use expressions like deny-all or permit-all or is-authenticated to specify how URL pattern should be handled -->
+	<security:http use-expressions="true">
+		<!-- Spring will automatically work down this list of authentication -->
+		<security:intercept-url pattern="/createOffer" access="isAuthenticated()"/>
+		<security:intercept-url pattern="/doCreate" access="isAuthenticated()" />
+		<security:intercept-url pattern="/offerCreated" access="isAuthenticated()" />
+		<security:intercept-url pattern="/" access="permitAll"/>
+		<security:intercept-url pattern="/offers" access="permitAll"/>
+		<!-- By default, we're barring all users from everything -->
+		<security:intercept-url pattern="/**" access="denyAll"/>
+		<security:form-login/>
+	</security:http>
 
 </beans>

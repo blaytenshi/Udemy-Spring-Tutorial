@@ -22,6 +22,7 @@
 		<security:intercept-url pattern="/doCreate" access="isAuthenticated()" />
 		<security:intercept-url pattern="/offerCreated" access="isAuthenticated()" />
 		<security:intercept-url pattern="/" access="permitAll"/>
+		<security:intercept-url pattern="/static/**" access="permitAll"/>
 		<security:intercept-url pattern="/offers" access="permitAll"/>
 		<!-- By default, we're barring all users from everything -->
 		<security:intercept-url pattern="/**" access="denyAll"/>

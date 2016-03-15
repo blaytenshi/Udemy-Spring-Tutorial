@@ -5,28 +5,32 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="${pageContext.request.contextPath}/static/css/main.css" rel="stylesheet" type="text/css" />
-<title>Insert title here</title>
+<title>Create a New Account</title>
 </head>
 <body>
 
-	<sf:form method="post" action="${pageContext.request.contextPath}/doCreate" commandName="offer">
+	<sf:form method="post" action="${pageContext.request.contextPath}/createaccount" commandName="user">
 	<!-- commandName finds the 'offer' object in the Model and reads from it. It needs to be a spring form to work. -->
 		<table class="formtable">
 			<tr>
-				<td class="label">Name:</td>
-				<td><sf:input class="control" name="name" type="text" path="name"/><br><sf:errors path="name" cssClass="error"></sf:errors></td>
+				<td class="label">Username:</td>
+				<td><sf:input class="control" name="username" type="text" path="username"/><br><sf:errors path="username" cssClass="error"></sf:errors></td>
 			</tr>
 			<tr>
 				<td class="label">Email:</td>
 				<td><sf:input class="control" name="email" type="text" path="email"/><br><sf:errors path="email" cssClass="error"></sf:errors></td>
 			</tr>
 			<tr>
-				<td class="label">Your Offer:</td>
-				<td><sf:textarea class="control" name="text" rows="10" cols="10" path="text"></sf:textarea><br><sf:errors path="text" cssClass="error"></sf:errors></td>
+				<td class="label">Password:</td>
+				<td><sf:input class="control" name="password" type="text" path="password"/><br><sf:errors path="password" cssClass="error"></sf:errors></td>
+			</tr>
+			<tr>
+				<td class="label">Confirm Password:</td>
+				<td><input class="control" name="confirmpass" type="text"/><br></td>
 			</tr>
 			<tr>
 				<td>&nbsp;</td>
-				<td><input class="control" value="Create Advert" type="submit" /></td>
+				<td><input class="control" value="Create Account" type="submit" /></td>
 			</tr>
 		</table>
 	</sf:form>

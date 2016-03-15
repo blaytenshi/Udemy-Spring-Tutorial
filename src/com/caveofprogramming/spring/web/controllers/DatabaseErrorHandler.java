@@ -10,6 +10,7 @@ public class DatabaseErrorHandler {
 	@ExceptionHandler(DataAccessException.class)
 	// DataAccessException catches all database exceptions
 	public String handleDatabaseException(DataAccessException ex) {
+		ex.printStackTrace();
 		return "error";
 	}
 	

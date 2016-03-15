@@ -29,7 +29,7 @@ textarea {
 }
 
 p.error {
-	color: red;
+	font-size: medium;
 }
 
 table.offers {

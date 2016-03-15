@@ -13,6 +13,11 @@
 				<security:user name="Zog" authorities="admin" password="iamzog"/>
 			</security:user-service>
 		</security:authentication-provider>
+		<security:authentication-provider>
+			<!-- name of the data source in the dao-context.xml where it says id -->
+			<!-- You can add custom queries for Authorities and Usernames by providing the needed queries in attributes "authorities by username query" and "users by username query" -->
+			<security:jdbc-user-service data-source-ref="dataSource"/>
+		</security:authentication-provider>
 	</security:authentication-manager>
 	
 	<!-- Which parts of the website are under security control. Use-expressions to true because we're gonna use expressions like deny-all or permit-all or is-authenticated to specify how URL pattern should be handled -->

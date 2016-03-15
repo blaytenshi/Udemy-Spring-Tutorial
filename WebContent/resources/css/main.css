@@ -28,6 +28,10 @@ textarea {
 	margin-left: 10px;
 }
 
+p.error {
+	color: red;
+}
+
 table.offers {
 	padding: 10px;
 	border: 1px solid gray;

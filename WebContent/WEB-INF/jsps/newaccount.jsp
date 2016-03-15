@@ -14,15 +14,18 @@
 		<table class="formtable">
 			<tr>
 				<td class="label">Username:</td>
-				<td><sf:input class="control" name="username" type="text" path="username"/><br><sf:errors path="username" cssClass="error"></sf:errors></td>
+				<td><sf:input class="control" name="username" type="text" path="username"/><br>
+				<div class="error"><sf:errors path="username"></sf:errors></div></td>
 			</tr>
 			<tr>
 				<td class="label">Email:</td>
-				<td><sf:input class="control" name="email" type="text" path="email"/><br><sf:errors path="email" cssClass="error"></sf:errors></td>
+				<td><sf:input class="control" name="email" type="text" path="email"/><br>
+				<div class="error"><sf:errors path="email"></sf:errors></div></td>
 			</tr>
 			<tr>
 				<td class="label">Password:</td>
-				<td><sf:input class="control" name="password" type="text" path="password"/><br><sf:errors path="password" cssClass="error"></sf:errors></td>
+				<td><sf:input class="control" name="password" type="text" path="password"/><br>
+				<div class="error"><sf:errors path="password"></sf:errors></div></td>
 			</tr>
 			<tr>
 				<td class="label">Confirm Password:</td>

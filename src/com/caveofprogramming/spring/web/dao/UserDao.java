@@ -1,8 +1,11 @@
 package com.caveofprogramming.spring.web.dao;
 
+import java.util.List;
+
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -30,6 +33,10 @@ public class UserDao {
 	public boolean exists(String username) {
 		// select a count of the values, cast it into Integer type and compare whether it is greater than zero. If greater than zero then it's not unique.
 		return jdbc.queryForObject("SELECT COUNT(*) FROM users WHERE username=:username", new MapSqlParameterSource("username", username), Integer.class) > 0;
+	}
+
+	public List<User> getAllUsers() {
+		return jdbc.query("SELECT * FROM users, authorities WHERE users.username=authorities.username", BeanPropertyRowMapper.newInstance(User.class));
 	}
 
 }

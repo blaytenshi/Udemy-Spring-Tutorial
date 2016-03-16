@@ -42,12 +42,12 @@ public class LoginController {
 		user.setAuthority("user");
 		user.setEnabled(true);
 		
+		// Check if username exists, if exists throw error
 		if (userService.exists(user.getUsername())) {
 			System.out.println("Caught duplicate username");
-			result.rejectValue("username", "DuplicateKey.user.username", "This username already exists");
+			result.rejectValue("username", "DuplicateKey.user.username", "_This username already exists!");
 			return "newaccount";
 		}
-		
 		
 		try {
 			userService.create(user);			
@@ -57,8 +57,8 @@ public class LoginController {
 			// System.out.println(e.getClass());
 			
 			// Register a field error for the specified field of the current object using the given error description. 
-			// First is field name; second is the error code, interpretable as a message key, third is the fallback default Message if message key is not found in a properties file.
-			result.rejectValue("username", "DuplicateKey.user.username", "This username already exists");
+			// First is field name; second is the error code, interpretable as a message key (made up yourself), third is the fallback default Message if message key is not found in a properties file.
+			result.rejectValue("username", "DuplicateKey.user.username", "_This username already exists!");
 			return "newaccount";
 		}
 		

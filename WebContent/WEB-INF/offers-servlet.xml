@@ -16,6 +16,11 @@
 		<property name="suffix" value=".jsp"></property>
 	</bean>
 	
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<!-- You don't need to put .properties in -->
+		<property name="basename" value="com.caveofprogramming.spring.web.messages.messages"></property>
+	</bean>
+	
 	<mvc:annotation-driven></mvc:annotation-driven>
 	
 	<!-- Will now map whatever /static/ url and any folders after it into folders, subfolders and files that are found in the /resources/ folder -->

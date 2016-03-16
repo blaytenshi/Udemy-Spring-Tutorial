@@ -10,7 +10,8 @@ import com.caveofprogramming.spring.web.validation.ValidEmail;
 public class User {
 	
 	@NotBlank(message="Username cannot be blank")
-	@Size(min=8, max=15, message="Username must be between 8 and 15 characters long")
+	// Will automatically look up the error message in the messages.properties file defined in offers-servlet.xml
+	@Size(min=8, max=15)
 	@Pattern(regexp="^\\w{8,}$", message="Username can only consist of numbers and letter and underscore character")
 	private String username;
 	

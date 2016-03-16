@@ -12,6 +12,10 @@
 <c:url var="logoutUrl" value='/logout'/>
 <p><a href="${pageContext.request.contextPath}/offers">Show current offers.</a></p>
 <p><a href="${pageContext.request.contextPath}/createOffer">Add a new offer.</a></p>
+<c:url var="adminUrl" value="/admin"/>
+<c:url var="loginUrl" value="/login"/>
+<p><a href="${loginUrl}">Login</a></p>
+<p><a href="${adminUrl}">Admin (For Admin roles only!)</a></p>
 <form action="${logoutUrl}" method="post">
 	<input type="submit" value="logout"/>
 	<!-- required by spring because it has implemented csrf protection -->

@@ -36,6 +36,8 @@
 	
 	<p>
 		<a href="<c:url value='/newaccount'/>">Create new account</a>
+		<c:url var="homeUrl" value="/"/>
+		<a href="${homeUrl}">Back to home</a>
 	</p>
 </body>
 </html>

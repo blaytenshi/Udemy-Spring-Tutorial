@@ -23,5 +23,7 @@
 			</tr>
 		</c:forEach>
 	</table>
+	<c:url var="homeUrl" value="/"/>
+	<a href="${homeUrl}">Back to home</a>
 </body>
 </html>

@@ -23,9 +23,12 @@
 	<!-- Which parts of the website are under security control. Use-expressions to true because we're gonna use expressions like deny-all or permit-all or is-authenticated to specify how URL pattern should be handled -->
 	<security:http use-expressions="true">
 		<!-- Spring will automatically work down this list of authentication -->
+		<!-- The ADMIN must be in capital. Spring will find the right role in the db provided you use the spring specified schema. -->
+		<!-- In the DB you need to use the authorities table with a role column mapped to usernames with role names starting with "ROLE_"... -->
+		<security:intercept-url pattern="/admin" access="hasRole('ADMIN')"/>
 		<security:intercept-url pattern="/createOffer" access="isAuthenticated()"/>
 		<security:intercept-url pattern="/doCreate" access="isAuthenticated()" />
-		<security:intercept-url pattern="/offerCreated" access="isAuthenticated()" />
+		<security:intercept-url pattern="/offerCreated" access="isAuthenticated()"/>
 		<security:intercept-url pattern="/loggedout" access="permitAll"/>
 		<security:intercept-url pattern="/createaccount" access="permitAll"/>
 		<security:intercept-url pattern="/newaccount" access="permitAll"/>

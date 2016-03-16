@@ -36,6 +36,7 @@
 				<td><input class="control" value="Create Account" type="submit" /></td>
 			</tr>
 		</table>
+		<input name="${_csrf.parameterName}" type="hidden" value="${_csrf.token}" />
 	</sf:form>
 
 </body>

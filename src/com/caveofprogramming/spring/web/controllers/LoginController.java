@@ -24,6 +24,11 @@ public class LoginController {
 		return "login";
 	}
 	
+	@RequestMapping("/loggedout")
+	public String showLoggedout() {
+		return "loggedout";
+	}
+	
 	@RequestMapping("/newaccount")
 	public String showNewAccount(Model model) {
 		

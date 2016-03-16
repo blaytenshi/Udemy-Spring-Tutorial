@@ -9,18 +9,18 @@ import com.caveofprogramming.spring.web.validation.ValidEmail;
 
 public class User {
 	
-	@NotBlank(message="Username cannot be blank")
+	@NotBlank(message="_Username cannot be blank")
 	// Will automatically look up the error message in the messages.properties file defined in offers-servlet.xml
 	@Size(min=8, max=15)
-	@Pattern(regexp="^\\w{8,}$", message="Username can only consist of numbers and letter and underscore character")
+	@Pattern(regexp="^\\w{8,}$", message="_Username can only consist of numbers and letter and underscore character")
 	private String username;
 	
-	@NotBlank(message="Password cannot be blank")
-	@Size(min=8, max=15, message="Password must be between 8 and 15 characters long")
-	@Pattern(regexp="^\\S+$", message="Password cannot contain spaces")
+	@NotBlank(message="_Password cannot be blank")
+	@Size(min=8, max=15, message="_Password must be between 8 and 15 characters long")
+	@Pattern(regexp="^\\S+$", message="_Password cannot contain spaces")
 	private String password;
 	
-	@ValidEmail(message="This does not appear to be a valid email address")
+	@ValidEmail(message="_This does not appear to be a valid email address")
 	private String email;
 	private boolean enabled = false;
 	private String authority;

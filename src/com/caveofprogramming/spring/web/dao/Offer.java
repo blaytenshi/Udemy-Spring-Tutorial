@@ -10,15 +10,15 @@ public class Offer {
 	
 	private int id;
 	
-	@Size(min=5, max=100, message="Name must be between 5 and 100 characters")
+	@Size(min=5, max=100, message="_Name must be between 5 and 100 characters")
 	private String name;
 	
 	@NotNull
 	// @Pattern(regexp=".*\\@.*\\..*", message="This does not appear to be a valid email address")
-	@ValidEmail(min=6, message="This email address is not valid")
+	@ValidEmail(min=6, message="_This email address is not valid")
 	private String email;
 	
-	@Size(min=2, max=255, message="Text must be between 20 and 255 characters")
+	@Size(min=2, max=255, message="_Text must be between 20 and 255 characters")
 	private String text;
 	
 	public Offer() {

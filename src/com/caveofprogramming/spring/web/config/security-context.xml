@@ -16,7 +16,8 @@
 		<security:authentication-provider>
 			<!-- name of the data source in the dao-context.xml where it says id -->
 			<!-- You can add custom queries for Authorities and Usernames by providing the needed queries in attributes "authorities by username query" and "users by username query" -->
-			<security:jdbc-user-service data-source-ref="dataSource"/>
+			<!-- If you need specific columns you can rewrite the SQL query to be similar to SELECT name_user FROM name_user_table AS username if your tables are whacked -->
+			<security:jdbc-user-service data-source-ref="dataSource" authorities-by-username-query="SELECT username, authority FROM authorities WHERE BINARY username = ?" users-by-username-query="SELECT username, password, enabled FROM users WHERE BINARY username = ?"/>
 		</security:authentication-provider>
 	</security:authentication-manager>
 	

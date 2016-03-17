@@ -13,4 +13,4 @@ CREATE TABLE `springtutorial`.`users` (
 
 
 INSERT INTO `springtutorial`.`users` (username, password, email, enabled) values ("Mike", "hello", "mike@caveofprogramming.com", 1);
-INSERT INTO `springtutorial`.`authorities` (username, authority) values ("Mike", "admin");
+INSERT INTO `springtutorial`.`authorities` (username, authority) values ("Mike", "ROLE_ADMIN");

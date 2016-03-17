@@ -26,7 +26,8 @@
 		<!-- Spring will automatically work down this list of authentication -->
 		<!-- The ADMIN must be in capital. Spring will find the right role in the db provided you use the spring specified schema. -->
 		<!-- In the DB you need to use the authorities table with a role column mapped to usernames with role names starting with "ROLE_"... -->
-		<security:intercept-url pattern="/admin" access="hasRole('ADMIN')"/>
+		<security:intercept-url pattern="/admin" access="permitAll"/>
+		<!-- security:intercept-url pattern="/admin" access="hasRole('ROLE_ADMIN')"/ -->
 		<security:intercept-url pattern="/createOffer" access="isAuthenticated()"/>
 		<security:intercept-url pattern="/doCreate" access="isAuthenticated()" />
 		<security:intercept-url pattern="/offerCreated" access="isAuthenticated()"/>
@@ -45,4 +46,7 @@
 		<security:logout logout-success-url="/loggedout"/>
 	</security:http>
 
+	<!-- This enabled annotation based security so that you can check roles even in methods and not just for URLs-->
+	<!-- Caveate to this is that all roles must now start with "ROLE_". You could create a role voter bean and change the Role Voter to look for something else but this is easier -->
+	<security:global-method-security secured-annotations="enabled"></security:global-method-security>
 </beans>

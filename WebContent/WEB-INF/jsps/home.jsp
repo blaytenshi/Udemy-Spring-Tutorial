@@ -19,7 +19,7 @@
 <sec:authorize access="!isAuthenticated()">
 	<p><a href="${loginUrl}">Login</a></p>
 </sec:authorize>
-<sec:authorize access="hasRole('ADMIN')">
+<sec:authorize access="hasRole('ROLE_ADMIN')">
 	<p><a href="${adminUrl}">Admin (For Admin roles only!)</a></p>
 </sec:authorize>
 <sec:authorize access="isAuthenticated()">

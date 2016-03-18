@@ -30,8 +30,8 @@
 				<td colspan='2'><input name="submit" type="submit"
 					value="Login" /></td>
 			</tr>
-			<input name="${_csrf.parameterName}" type="hidden" value="${_csrf.token}" />
 		</table>
+		<input name="${_csrf.parameterName}" type="hidden" value="${_csrf.token}" />
 	</form>
 	
 	<p>

@@ -26,6 +26,11 @@ public class LoginController {
 		return "login";
 	}
 	
+	@RequestMapping("/denied")
+	public String showDenied() {
+		return "denied";
+	}
+	
 	@RequestMapping("/loggedout")
 	public String showLoggedout() {
 		return "loggedout";
@@ -43,10 +48,10 @@ public class LoginController {
 	public String showAdmin(Model model) {
 		
 		List<User> users = userService.getAllUsers();
-		
 		model.addAttribute("users", users);
 		
 		return "admin";
+		
 	}
 	
 	@RequestMapping(value="/createaccount", method=RequestMethod.POST)

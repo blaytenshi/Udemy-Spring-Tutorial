@@ -6,7 +6,7 @@ CREATE TABLE `springtutorial`.`authorities` (
 
 CREATE TABLE `springtutorial`.`users` (
   `username` VARCHAR(60) NOT NULL,
-  `password` VARCHAR(80) NULL,
+  `password` VARCHAR(255) NULL,
   `email` VARCHAR(60) NULL,
   `enabled` TINYINT(1) NULL DEFAULT 1,
   PRIMARY KEY (`username`));

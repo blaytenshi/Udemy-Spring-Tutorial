@@ -11,9 +11,21 @@
 		base-package="com.caveofprogramming.spring.web.controllers">
 	</context:component-scan>
 	
+	<!-- Removing this view Resolver because we're gonna use Apache Tiles now :)
 	<bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/jsps/"></property>
 		<property name="suffix" value=".jsp"></property>
+	</bean>
+	-->
+	
+	<!-- Yeah.. yeah... it's deprecated. But this is for learning so go along with it for now. -->
+	<bean id="tilesViewResolver" class="org.springframework.web.servlet.view.tiles2.TilesViewResolver"></bean>
+	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
+		<property name="definitions">
+			<list>
+				<value>/WEB-INF/layouts/default.xml</value>
+			</list>
+		</property>
 	</bean>
 	
 	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">

@@ -4,5 +4,11 @@
 		"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
 <tiles-definitions>
 	<!-- Related to the home in the requestMapping in HomeController.java -->
-	<definition name="home" template="/WEB-INF/templates/default.jsp"></definition>
+	<!-- Controller looks at the request mapping and points the view resolvers to this XML page which points to the templates depending on the return string. -->
+	<definition name="home" template="/WEB-INF/templates/default.jsp">
+		<put-attribute name="title" value="Offers Homepage"></put-attribute>
+		<put-attribute name="header" value="/WEB-INF/tiles/header.jsp"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/content.jsp"></put-attribute>
+		<put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp"></put-attribute>
+	</definition>
 </tiles-definitions>

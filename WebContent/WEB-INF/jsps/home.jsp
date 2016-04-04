@@ -9,19 +9,19 @@
 <title>Insert title here</title>
 </head>
 <body>
-<!-- the value of /logout is picked up by the spring filter and will clear any matching in session logins -->
-<c:url var="logoutUrl" value='/logout'/>
 <p><a href="${pageContext.request.contextPath}/offers">Show current offers.</a></p>
 <p><a href="${pageContext.request.contextPath}/createOffer">Add a new offer.</a></p>
-<c:url var="adminUrl" value="/admin"/>
 <c:url var="loginUrl" value="/login"/>
 <!-- Yes you can use boolean for the expressions -->
 <sec:authorize access="!isAuthenticated()">
 	<p><a href="${loginUrl}">Login</a></p>
 </sec:authorize>
+<c:url var="adminUrl" value="/admin"/>
 <sec:authorize access="hasRole('ROLE_ADMIN')">
 	<p><a href="${adminUrl}">Admin (For Admin roles only!)</a></p>
 </sec:authorize>
+<!-- the value of /logout is picked up by the spring filter and will clear any matching in session logins -->
+<c:url var="logoutUrl" value='/logout'/>
 <sec:authorize access="isAuthenticated()">
 <form action="${logoutUrl}" method="post">
 	<input type="submit" value="logout"/>

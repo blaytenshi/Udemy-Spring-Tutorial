@@ -13,9 +13,11 @@
 	<a class="login" href="${loginUrl}">Login</a>
 </sec:authorize>
 <sec:authorize access="isAuthenticated()">
+<div class="login">
 <form action="${logoutUrl}" method="post">
-	<input class="login" type="submit" value="logout"/>
+	<input type="submit" value="logout"/>
 	<!-- required by spring because it has implemented csrf protection -->
 	<input type="hidden" value="${_csrf.token}" name="${_csrf.parameterName}"/>
 </form>
+</div>
 </sec:authorize>
